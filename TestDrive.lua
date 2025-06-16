@@ -35,7 +35,7 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
     testDriveButton:setText(g_i18n:getText("rp_TEST_DRIVE"))
     testDriveButton:setInputAction("MENU_EXTRA_2")
     testDriveButton.onClickCallback = function()
-        TestDrive.manager:startTestDrive(shopConfigScreen.storeItem)
+        TestDrive.manager:startTestDrive(shopConfigScreen.storeItem, shopConfigScreen.configurations)
     end
 
     shopConfigScreen.buyButton.parent:addElement(testDriveButton)

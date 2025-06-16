@@ -21,7 +21,7 @@ function TestDriveManager:onTimerFinish()
     end)
 end
 
-function TestDriveManager:startTestDrive(storeItem)
+function TestDriveManager:startTestDrive(storeItem, configurations)
     if self:isTestDriveActive() then
         InfoDialog.show("You can only do one test drive at a time!")
         return
@@ -29,6 +29,7 @@ function TestDriveManager:startTestDrive(storeItem)
 
     local data = VehicleLoadingData.new()
     data:setStoreItem(storeItem)
+    data:setConfigurations(configurations)
     data:setLoadingPlace(g_currentMission.storeSpawnPlaces, g_currentMission.usedStorePlaces)
     data:setPropertyState(VehiclePropertyState.OWNED)
     data:setOwnerFarmId(g_localPlayer.farmId)
