@@ -1,3 +1,5 @@
+source(g_currentModDirectory .. "TestDriveManager.lua")
+source(g_currentModDirectory .. "TestDriveData.lua")
 source(g_currentModDirectory .. "TestDrive.lua")
 
 TestDrive = {}

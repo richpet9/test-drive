@@ -43,10 +43,12 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
                         TestDriveManager.duration)
     InfoDialog.show(message, function()
+        self.timer:setDuration(TestDriveManager.duration * 60 * 1000)
         self.timer:start()
+        self.vehicle.isTestDriveVehicle = true
     end)
 end
 
 function TestDriveManager:isTestDriveActive()
-    return self.timer:getIsRunning() and self.vehicle ~= nil
+    return self.vehicle ~= nil or self.timer:getIsRunning()
 end

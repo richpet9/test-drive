@@ -22,6 +22,7 @@
 
     <extraSourceFiles>
         <sourceFile filename="TestDriveManager.lua" />
+        <sourceFile filename="TestDriveData.lua" />
         <sourceFile filename="TestDrive.lua" />
     </extraSourceFiles>
 
