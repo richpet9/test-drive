@@ -22,7 +22,7 @@ function TestDriveManager:onTimerFinish()
 end
 
 function TestDriveManager:startTestDrive(storeItem)
-    if self.vehicle ~= nil then
+    if self:isTestDriveActive() then
         InfoDialog.show("You can only do one test drive at a time!")
         return
     end
@@ -37,7 +37,12 @@ function TestDriveManager:startTestDrive(storeItem)
         self.vehicle = loadedvehicles[1]
     end)
 
+    TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
     InfoDialog.show("Your test drive has begun! The dealer will take back the vehicle in 5 minutes.", function()
         self.timer:start()
     end)
+end
+
+function TestDriveManager:isTestDriveActive()
+    return self.timer:getIsRunning() and self.vehicle ~= nil
 end

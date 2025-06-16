@@ -21,6 +21,10 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
         return
     end
 
+    if TestDrive.manager:isTestDriveActive() then
+        return
+    end
+
     local vehicle = shopConfigScreen.previewVehicles[1]
     if SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations) ~= true then
         print("[DEBUG] TestDrive: Not adding button, not a drivable vehicle.")
