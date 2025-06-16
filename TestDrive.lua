@@ -7,11 +7,12 @@ TestDrive.dir = g_currentModDirectory
 TestDrive.modName = g_currentModName
 
 TestDrive.initialized = false
+TestDrive.buttonAdded = false
 TestDrive.vehicle = nil
 TestDrive.manager = nil
 
 ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded, function(self)
-    TestDrive.createTestDriveButton(self)
+    TestDrive.maybeAddTestDriveButton(self)
 end)
 
 ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, function(self)
@@ -20,10 +21,6 @@ end)
 
 function TestDrive.createTestDriveButton(shopConfigScreen)
     if shopConfigScreen.testDriveButton ~= nil then
-        return
-    end
-
-    if TestDrive.manager:isTestDriveActive() then
         return
     end
 
@@ -40,17 +37,29 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
         TestDrive.manager:startTestDrive(shopConfigScreen.storeItem, shopConfigScreen.configurations)
     end
 
-    shopConfigScreen.buyButton.parent:addElement(testDriveButton)
     shopConfigScreen.testDriveButton = testDriveButton
 end
 
-function TestDrive.removeTestDriveButton(shopConfigScreen)
+function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
+    if TestDrive.manager:isTestDriveActive() or TestDrive.buttonAdded then
+        return
+    end
+
     if shopConfigScreen.testDriveButton == nil then
+        shopConfigScreen.testDriveButton = TestDrive.createTestDriveButton(shopConfigScreen)
+    end
+
+    shopConfigScreen.buyButton.parent:addElement(shopConfigScreen.testDriveButton)
+    TestDrive.buttonAdded = true
+end
+
+function TestDrive.removeTestDriveButton(shopConfigScreen)
+    if TestDrive.buttonAdded == false then
         return -- Already gone.
     end
-    -- TODO: remove from memory?
+
     shopConfigScreen.testDriveButton.parent:removeElement(shopConfigScreen.testDriveButton)
-    shopConfigScreen.testDriveButton = nil
+    TestDrive.buttonAdded = false
     print("[DEBUG] TestDrive: Removed test drive button.")
 end
 
