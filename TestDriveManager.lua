@@ -39,7 +39,10 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     end)
 
     TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
-    InfoDialog.show("Your test drive has begun! The dealer will take back the vehicle in 5 minutes.", function()
+
+    local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
+                        TestDriveManager.duration)
+    InfoDialog.show(message, function()
         self.timer:start()
     end)
 end
