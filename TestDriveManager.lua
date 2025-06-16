@@ -31,7 +31,7 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     data:setStoreItem(storeItem)
     data:setConfigurations(configurations)
     data:setLoadingPlace(g_currentMission.storeSpawnPlaces, g_currentMission.usedStorePlaces)
-    data:setPropertyState(VehiclePropertyState.OWNED)
+    data:setPropertyState(VehiclePropertyState.LEASED)
     data:setOwnerFarmId(g_localPlayer.farmId)
 
     data:load(function(_, loadedvehicles)
