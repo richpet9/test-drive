@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="96">
+    <author>RichOPick</author>
+    <version>0.0.0.0</version>
+    <title>
+        <en>Test Drive</en>
+        <!-- <de>Mietvertrag Mit Kaufklausel</de>
+        <fr>Achat De Matériel Loué</fr>
+        <pl>Leasing Na Własność</pl>
+        <uk>Викуп Oрендованого Y Власність</uk>
+        <ru>Выкуп Aрендованного в Cобственность</ru> -->
+    </title>
+    <description>
+        <en><![CDATA[Test Drive.
+]]></en>
+
+    </description>
+
+    <iconFilename>icon_leasetoown.dds</iconFilename>
+
+    <multiplayer supported="false"/>
+
+    <extraSourceFiles>
+        <sourceFile filename="TestDriveManager.lua" />
+        <sourceFile filename="TestDrive.lua" />
+    </extraSourceFiles>
+
+    <l10n>
+        <text name="rp_TEST_DRIVE">
+            <en>Test drive</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
+    </l10n>
+</modDesc>
