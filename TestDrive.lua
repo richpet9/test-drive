@@ -55,13 +55,23 @@ end
 
 function TestDrive.removeTestDriveButton(shopConfigScreen)
     if TestDrive.buttonAdded == false then
-        return -- Already gone.
+        return
     end
 
     shopConfigScreen.testDriveButton.parent:removeElement(shopConfigScreen.testDriveButton)
     TestDrive.buttonAdded = false
     print("[DEBUG] TestDrive: Removed test drive button.")
 end
+
+Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
+    -- This function handles if the test drive vehicle is removed by anything other than this mod.
+    if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == self:getUniqueId() then
+        if TestDrive.manager.timer:getIsRunning() then
+            -- Delete was not triggered by test drive ending.
+            TestDrive.manager:reset()
+        end
+    end
+end)
 
 local function init()
     if TestDrive.initialized then

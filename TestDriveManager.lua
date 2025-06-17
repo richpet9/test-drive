@@ -40,6 +40,7 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     end
 
     if insurancePrice > 0 then
+        -- TODO format money string with l10n.
         YesNoDialog.show(purchaseInsurance, self,
                          "The dealer requires that this vehicle have insurance purchased prior to your test drive.\n" ..
                              ("They are requesting $%s for insurance.\n"):format(insurancePrice) ..
@@ -87,4 +88,9 @@ end
 
 function TestDriveManager:isTestDriveActive()
     return self.vehicle ~= nil or self.timer:getIsRunning()
+end
+
+function TestDriveManager:reset()
+    self.vehicle = nil
+    self.timer:reset()
 end
