@@ -10,13 +10,13 @@ function TestDriveManager.new()
     self.vehicle = nil
     self.timer = Timer.new(TestDriveManager.duration * 60 * 1000)
     self.timer:setFinishCallback(function()
-        self:onTimerFinish()
+        self:showFinishDialogAndReset()
     end)
 
     return self
 end
 
-function TestDriveManager:onTimerFinish()
+function TestDriveManager:showFinishDialogAndReset()
     InfoDialog.show("Your test drive has finished! The dealer has taken back the vehicle.", function()
         self.vehicle:delete()
         self.vehicle = nil
