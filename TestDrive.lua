@@ -7,7 +7,7 @@ TestDrive.dir = g_currentModDirectory
 TestDrive.modName = g_currentModName
 
 TestDrive.isInitialized = false
-TestDrive.buttonAdded = false
+TestDrive.isButtonAdded = false
 TestDrive.vehicle = nil
 TestDrive.manager = nil
 
@@ -41,7 +41,7 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
 end
 
 function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
-    if TestDrive.manager:isTestDriveActive() or TestDrive.buttonAdded then
+    if TestDrive.manager:isTestDriveActive() or TestDrive.isButtonAdded then
         return
     end
 
@@ -50,16 +50,16 @@ function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
     end
 
     shopConfigScreen.buyButton.parent:addElement(shopConfigScreen.testDriveButton)
-    TestDrive.buttonAdded = true
+    TestDrive.isButtonAdded = true
 end
 
 function TestDrive.removeTestDriveButton(shopConfigScreen)
-    if not TestDrive.buttonAdded then
+    if not TestDrive.isButtonAdded then
         return
     end
 
     shopConfigScreen.testDriveButton.parent:removeElement(shopConfigScreen.testDriveButton)
-    TestDrive.buttonAdded = false
+    TestDrive.isButtonAdded = false
     print("[DEBUG] TestDrive: Removed test drive button.")
 end
 
