@@ -25,7 +25,7 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
     end
 
     local vehicle = shopConfigScreen.previewVehicles[1]
-    if SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations) ~= true then
+    if not SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations) then
         print("[DEBUG] TestDrive: Not adding button, not a drivable vehicle.")
         return
     end
@@ -54,7 +54,7 @@ function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
 end
 
 function TestDrive.removeTestDriveButton(shopConfigScreen)
-    if TestDrive.buttonAdded == false then
+    if not TestDrive.buttonAdded then
         return
     end
 
