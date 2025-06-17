@@ -1,5 +1,5 @@
 TestDriveManager = {}
-TestDriveManager.duration = 5 -- minutes.
+TestDriveManager.duration = 2 -- minutes.
 TestDriveManager.insurancePriceThreshold = 100000
 TestDriveManager.insurancePricePercent = 0.002 -- 2% total price
 
