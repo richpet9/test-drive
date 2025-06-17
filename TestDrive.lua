@@ -6,7 +6,7 @@ TestDrive = {}
 TestDrive.dir = g_currentModDirectory
 TestDrive.modName = g_currentModName
 
-TestDrive.initialized = false
+TestDrive.isInitialized = false
 TestDrive.buttonAdded = false
 TestDrive.vehicle = nil
 TestDrive.manager = nil
@@ -74,12 +74,12 @@ Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
 end)
 
 local function init()
-    if TestDrive.initialized then
+    if TestDrive.isInitialized then
         return
     end
 
     TestDrive.manager = TestDriveManager.new()
-    TestDrive.initialized = true
+    TestDrive.isInitialized = true
 end
 
 init()
