@@ -37,7 +37,7 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
         TestDrive.manager:startTestDrive(shopConfigScreen.storeItem, shopConfigScreen.configurations)
     end
 
-    shopConfigScreen.testDriveButton = testDriveButton
+    return testDriveButton
 end
 
 function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
