@@ -11,13 +11,10 @@ TestDrive.buttonAdded = false
 TestDrive.vehicle = nil
 TestDrive.manager = nil
 
-ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded, function(self)
-    TestDrive.maybeAddTestDriveButton(self)
-end)
-
-ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, function(self)
-    TestDrive.removeTestDriveButton(self)
-end)
+ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded,
+                                                           TestDrive.maybeAddTestDriveButton)
+ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, TestDrive.removeTestDriveButton)
+Vehicle.delete = Utils.prependedFunction(Vehicle.delete, TestDrive.handleUnexpectedVehicleDelete)
 
 function TestDrive.createTestDriveButton(shopConfigScreen)
     if shopConfigScreen.testDriveButton ~= nil then
@@ -63,15 +60,15 @@ function TestDrive.removeTestDriveButton(shopConfigScreen)
     print("[DEBUG] TestDrive: Removed test drive button.")
 end
 
-Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
+function TestDrive.handleUnexpectedVehicleDelete(vehicle)
     -- This function handles if the test drive vehicle is removed by anything other than this mod.
-    if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == self:getUniqueId() then
+    if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == vehicle:getUniqueId() then
         if TestDrive.manager.timer:getIsRunning() then
             -- Delete was not triggered by test drive ending.
             TestDrive.manager:reset()
         end
     end
-end)
+end
 
 local function init()
     if TestDrive.initialized then
