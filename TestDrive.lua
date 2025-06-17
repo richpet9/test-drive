@@ -11,6 +11,14 @@ TestDrive.buttonAdded = false
 TestDrive.vehicle = nil
 TestDrive.manager = nil
 
+ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded, function(self)
+    TestDrive.maybeAddTestDriveButton(self)
+end)
+
+ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, function(self)
+    TestDrive.removeTestDriveButton(self)
+end)
+
 function TestDrive.createTestDriveButton(shopConfigScreen)
     if shopConfigScreen.testDriveButton ~= nil then
         return
@@ -44,8 +52,6 @@ function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
     shopConfigScreen.buyButton.parent:addElement(shopConfigScreen.testDriveButton)
     TestDrive.buttonAdded = true
 end
-ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded,
-                                                           TestDrive.maybeAddTestDriveButton)
 
 function TestDrive.removeTestDriveButton(shopConfigScreen)
     if TestDrive.buttonAdded == false then
@@ -56,18 +62,16 @@ function TestDrive.removeTestDriveButton(shopConfigScreen)
     TestDrive.buttonAdded = false
     print("[DEBUG] TestDrive: Removed test drive button.")
 end
-ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, TestDrive.removeTestDriveButton)
 
-function TestDrive.handleUnexpectedVehicleDelete(vehicle)
+Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
     -- This function handles if the test drive vehicle is removed by anything other than this mod.
-    if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == vehicle:getUniqueId() then
+    if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == self:getUniqueId() then
         if TestDrive.manager.timer:getIsRunning() then
             -- Delete was not triggered by test drive ending.
             TestDrive.manager:reset()
         end
     end
-end
-Vehicle.delete = Utils.prependedFunction(Vehicle.delete, TestDrive.handleUnexpectedVehicleDelete)
+end)
 
 local function init()
     if TestDrive.initialized then
