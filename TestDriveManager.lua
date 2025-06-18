@@ -1,14 +1,13 @@
 TestDriveManager = {}
-TestDriveManager.duration = 2 -- minutes.
-TestDriveManager.insurancePriceThreshold = 100000
-TestDriveManager.insurancePricePercent = 0.002 -- 2% total price
 
 local TestDriverManger_mt = Class(TestDriveManager)
-function TestDriveManager.new()
+
+function TestDriveManager.new(settings)
     self = setmetatable({}, TestDriverManger_mt)
 
+    self.settings = settings
     self.vehicle = nil
-    self.timer = Timer.new(TestDriveManager.duration * 60 * 1000)
+    self.timer = Timer.new(self.settings.duration * 60 * 1000)
     self.timer:setFinishCallback(function()
         self:showFinishDialogAndReset()
     end)
@@ -52,20 +51,20 @@ end
 
 function TestDriveManager:getInsurancePrice(storeItem, configurations)
     local buyPrice = g_currentMission.economyManager:getBuyPrice(storeItem, configurations)
-    if buyPrice < TestDriveManager.insurancePriceThreshold then
+    if buyPrice < self.settings.insuranceThreshold then
         return 0
     end
-    return math.ceil(buyPrice * TestDriveManager.insurancePricePercent)
+    return math.ceil(buyPrice * self.settings.insuranceRatio)
 end
 
 function TestDriveManager:finalizeTestDrive(storeItem, configurations)
     self:loadVehicle(storeItem, configurations)
 
     local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
-                        TestDriveManager.duration)
+                        self.settings.duration)
 
     InfoDialog.show(message, function()
-        self.timer:setDuration(TestDriveManager.duration * 60 * 1000)
+        self.timer:setDuration(self.settings.duration * 60 * 1000)
         self.timer:start()
         self.vehicle.isTestDriveVehicle = true
     end)

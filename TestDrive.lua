@@ -1,7 +1,3 @@
-source(g_currentModDirectory .. "TestDriveManager.lua")
-source(g_currentModDirectory .. "TestDriveData.lua")
-source(g_currentModDirectory .. "TestDrive.lua")
-
 TestDrive = {}
 TestDrive.dir = g_currentModDirectory
 TestDrive.modName = g_currentModName
@@ -78,7 +74,8 @@ local function init()
         return
     end
 
-    TestDrive.manager = TestDriveManager.new()
+    local settings = TestDriveSettings.newFromXml()
+    TestDrive.manager = TestDriveManager.new(settings)
     TestDrive.isInitialized = true
 end
 

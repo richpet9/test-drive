@@ -1,0 +1,115 @@
+TestDriveSettings = {}
+
+TestDriveSettings.DEFAULT = {
+    duration = 2, -- minutes.
+    insuranceThreshold = 100000,
+    insuranceRatio = 0.003, -- 3% of total price.
+}
+
+TestDriveSettings.attemptedXmlLoad = false
+
+local TestDriveSettings_mt = Class(TestDriveSettings)
+
+function TestDriveSettings.new(settings)
+    self = setmetatable({}, TestDriveSettings_mt)
+
+    self.duration = settings.duration
+    self.insurancePrice = settings.insuranceThreshold
+    self.insuranceRatio = settings.insuranceRatio
+
+    return self
+end
+
+function TestDriveSettings.newFromXml()
+    if TestDriveSettings.attemptedXmlLoad then
+        return -- Already initialized settings, or attempted to.
+    end
+
+    TestDriveSettings.attemptedXmlLoad = true
+
+    local xmlFile = TestDriveSettings.getOrCreateXmlFile()
+    local settings = {
+        duration = nil,
+        insuranceThreshold = nil,
+        insuranceRatio = nil,
+     }
+
+    if xmlFile then
+        settings.duration = getXMLInt(xmlFile, "TestDriveSettings.duration")
+        settings.insuranceThreshold = getXMLInt(xmlFile, "TestDriveSettings.insuranceThreshold")
+        settings.insuranceRatio = getXMLFloat(xmlFile, "TestDriveSettings.insuranceRatio")
+        -- delete(xmlFile) -- From memory, not disk.
+    end
+
+    if settings.duration == nil then
+        settings.duration = TestDriveSettings.DEFAULT.duration
+    end
+
+    if settings.insuranceThreshold == nil then
+        settings.insuranceThreshold = TestDriveSettings.DEFAULT.insuranceThreshold
+    end
+
+    if settings.insuranceRatio == nil then
+        settings.insuranceRatio = TestDriveSettings.DEFAULT.insuranceRatio
+    end
+
+    print(("[DEBUG] TestDrive: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s)"):format(
+              settings.duration, settings.insuranceThreshold, settings.insuranceRatio))
+
+    return TestDriveSettings.new(settings)
+end
+
+function TestDriveSettings.saveToXml(settings, xml)
+    local xmlFile = xml or TestDriveSettings.getXmlFile()
+
+    setXMLInt(xmlFile, "TestDriveSettings.duration", settings.duration)
+    setXMLInt(xmlFile, "TestDriveSettings.insuranceThreshold", settings.insuranceThreshold)
+    setXMLFloat(xmlFile, "TestDriveSettings.insuranceRatio", settings.insuranceRatio)
+
+    saveXMLFile(xmlFile)
+    -- delete(xmlFile)
+end
+
+function TestDriveSettings.getOrCreateXmlFile()
+    local xmlFilePath = TestDriveSettings.getXmlFilePath()
+    if xmlFilePath ~= nil then
+        local xmlFile = nil
+        if not fileExists(xmlFilePath) then
+            return TestDriveSettings.createNewSettingsXmlFile(xmlFilePath)
+        end
+
+        return TestDriveSettings.getXmlFile()
+    end
+end
+
+--- Returns the XML file object, or nil.
+function TestDriveSettings.getXmlFile()
+    local xmlFilePath = TestDriveSettings.getXmlFilePath()
+
+    if xmlFilePath ~= nil then
+        if not fileExists(xmlFilePath) then
+            print("[DEBUG] Attempted to open non-existent XML File: " .. xmlFilePath)
+            return
+        end
+
+        return loadXMLFile("testDriveSettings", xmlFilePath)
+    end
+end
+
+function TestDriveSettings.getXmlFilePath()
+    if g_dedicatedServerInfo == nil then
+        return Utils.getFilename("modSettings/testDriveSettings.xml", getUserProfileAppPath())
+    end
+    print("[DEBUG] TestDriveSettings: Failed to load from XML, filePath failed to build. Is this a server?")
+end
+
+function TestDriveSettings.createNewSettingsXmlFile(xmlFilePath)
+    local xmlFilePath = TestDriveSettings.getXmlFilePath()
+
+    print("[DEBUG] TestDrive: Creating XML file: " .. xmlFilePath)
+    local xmlFile = createXMLFile("testDriveSettings", xmlFilePath, "testDriveSettings")
+
+    TestDriveSettings.saveToXml(TestDriveSettings.DEFAULT, xmlFile)
+
+    return xmlFile
+end

@@ -21,6 +21,7 @@
     <multiplayer supported="false"/>
 
     <extraSourceFiles>
+        <sourceFile filename="TestDriveSettings.lua" />
         <sourceFile filename="TestDriveManager.lua" />
         <sourceFile filename="TestDriveData.lua" />
         <sourceFile filename="TestDrive.lua" />
