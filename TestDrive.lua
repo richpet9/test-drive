@@ -20,12 +20,6 @@ function TestDrive.createTestDriveButton(shopConfigScreen)
         return
     end
 
-    local vehicle = shopConfigScreen.previewVehicles[1]
-    if not SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations) then
-        print("[DEBUG] TestDrive: Not adding button, not a drivable vehicle.")
-        return
-    end
-
     local testDriveButton = shopConfigScreen.buyButton:clone(shopConfigScreen.buttonsPanel)
     testDriveButton:setText(g_i18n:getText("rp_TEST_DRIVE"))
     testDriveButton:setInputAction("MENU_EXTRA_2")
@@ -38,6 +32,11 @@ end
 
 function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
     if TestDrive.manager:isTestDriveActive() or TestDrive.isButtonAdded then
+        return
+    end
+
+    local vehicle = shopConfigScreen.previewVehicles[1]
+    if not SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations) then
         return
     end
 
