@@ -28,7 +28,7 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     end
 
     if self:isTestDriveActive() then
-        InfoDialog.show("You can only do one test drive at a time!")
+        InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_LIMIT"))
         return
     end
 

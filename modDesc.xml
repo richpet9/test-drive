@@ -84,5 +84,13 @@
             <uk>Викупити</uk>
             <ru>Выупить</ru> -->
         </text>
+        <text name="rp_TEST_DRIVE_LIMIT">
+            <en>You can only do one test drive at a time!</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
     </l10n>
 </modDesc>
