@@ -25,7 +25,5 @@ Vehicle.saveToXMLFile = Utils.appendedFunction(Vehicle.saveToXMLFile, function(s
     if self.isTestDriveVehicle then
         xmlFile:setValue(key .. "#isTestDrive", true)
         xmlFile:setValue(key .. "#testDriveTimeLeft", TestDrive.manager.timer.timeLeft)
-
-        print("[DEBUG] TestDrive: Saved test drive vehicle to XML.")
     end
 end)

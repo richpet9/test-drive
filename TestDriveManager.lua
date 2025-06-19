@@ -16,7 +16,7 @@ function TestDriveManager.new(settings)
 end
 
 function TestDriveManager:showFinishDialogAndReset()
-    InfoDialog.show("Your test drive has finished! The dealer has taken back the vehicle.", function()
+    InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_END"), function()
         self.vehicle:delete()
         self.vehicle = nil
     end)
@@ -46,11 +46,12 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     end
 
     if insurancePrice > 0 then
-        -- TODO format money string with l10n.
+        local insuranceRequired = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_REQUIRED")
+        local insuranceRequest = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_REQUEST"):format(insurancePrice)
+        local insuranceContinue = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_CONTINUE")
+
         YesNoDialog.show(purchaseInsurance, self,
-                         "The dealer requires that this vehicle have insurance purchased prior to your test drive.\n" ..
-                             ("They are requesting $%s for insurance.\n"):format(insurancePrice) ..
-                             "Do you wish to continue?")
+                         ("%s\n%s\n%s"):format(insuranceRequired, insuranceRequest, insuranceContinue))
     else
         self:finalizeTestDrive(buyVehicleData)
     end
@@ -72,8 +73,7 @@ function TestDriveManager:finalizeTestDrive(buyVehicleData)
     buyVehicleData.onBought = function(data, boughtVehicles)
         self.vehicle = boughtVehicles[1]
 
-        local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
-                            self.settings.duration)
+        local message = (g_i18n:getText("rp_TEST_DRIVE_BEGIN")):format(self.settings.duration)
 
         InfoDialog.show(message, function()
             self.timer:setDuration(self.settings.duration * 60 * 1000)

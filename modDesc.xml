@@ -44,5 +44,45 @@
             <uk>Викупити</uk>
             <ru>Выупить</ru> -->
         </text>
+        <text name="rp_TEST_DRIVE_INSURANCE_REQUIRED">
+            <en>The dealer requires that this vehicle have insurance purchased prior to your test drive.</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
+        <text name="rp_TEST_DRIVE_INSURANCE_REQUEST">
+            <en>They are requesting %s for insurance.</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
+        <text name="rp_TEST_DRIVE_INSURANCE_CONTINUE">
+            <en>Do you wish to continue?</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
+        <text name="rp_TEST_DRIVE_BEGIN">
+            <en>Your test drive has begun! The dealer will take back the vehicle in %s minutes.</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
+        <text name="rp_TEST_DRIVE_END">
+            <en>Your test drive has finished! The dealer has taken back the vehicle.</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
     </l10n>
 </modDesc>
