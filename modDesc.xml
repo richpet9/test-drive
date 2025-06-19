@@ -34,9 +34,11 @@ Please leave bug reports, feedback, or suggestions on my GitHub: https://github.
 ]]></en>
     <de><![CDATA[Probefahrt.
 
-Mit diesem Mod können Sie ein Fahrzeug für einen begrenzten Zeitraum kostenlos Probe fahren. Dies ist nützlich, um vor dem Kauf die Größe oder das Gewicht eines bestimmten Fahrzeugs zu überprüfen (z. B. um zu prüfen, ob es mit Ihren Anbaugeräten kompatibel ist).
+Mit diesem Mod können Sie ein Fahrzeug für einen begrenzten Zeitraum kostenlos Probe fahren. Dies ist nützlich, um vor dem Kauf die Größe oder das Gewicht eines
+bestimmten Fahrzeugs zu überprüfen (z. B. um zu prüfen, ob es mit Ihren Anbaugeräten kompatibel ist).
 
-Standardmäßig ist die Probefahrt für Fahrzeuge unter 100.000 $ kostenlos und dauert 2 Minuten in Echtzeit. Bei Fahrzeugen über 100.000 $ berechnet der Händler eine Versicherungsgebühr in Höhe von 3 % des Fahrzeugwerts. Probefahrten sind nur mit fahrbereiten Fahrzeugen möglich.
+Standardmäßig ist die Probefahrt für Fahrzeuge unter 100.000 $ kostenlos und dauert 2 Minuten in Echtzeit. Bei Fahrzeugen über 100.000 $ berechnet der Händler eine
+Versicherungsgebühr in Höhe von 3 % des Fahrzeugwerts. Probefahrten sind nur mit fahrbereiten Fahrzeugen möglich.
 
 Dieser Mod erstellt die Datei „testDriveSettings.xml“ im Verzeichnis „modSettings“. Mit dieser Datei können folgende Einstellungen konfiguriert werden:
 - duration: Die Echtzeitdauer der Testfahrt in Minuten (Standard: 2)
@@ -75,7 +77,8 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 покупкой.
 
 По умолчанию тест-драйв бесплатный для транспортных средств стоимостью менее 100.000 долларов США и длится 2 минуты в режиме реального времени. Если транспортное средство
-стоит более 100.000 долларов США, то дилер взимает страховой сбор в размере 3% от стоимости транспортного средства. Тест-драйв можно проводить только на транспортных средствах, на которых можно ездить.
+стоит более 100.000 долларов США, то дилер взимает страховой сбор в размере 3% от стоимости транспортного средства. Тест-драйв можно проводить только на транспортных
+средствах, на которых можно ездить.
 
 Этот мод создает файл "testDriveSettings.xml" в каталоге modSettings, который можно использовать для настройки:
 - duration: продолжительность тест-драйва в реальном времени в минутах (по умолчанию = 2)
@@ -89,9 +92,11 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 ]]></ru>
     <fr><![CDATA[Essai routier.
 
-Ce module vous permet d'essayer gratuitement un véhicule pendant une durée très limitée. Ceci est utile pour vérifier la taille ou le poids d'un véhicule (par exemple, pour vérifier sa compatibilité avec vos outils) avant de l'acheter.
+Ce module vous permet d'essayer gratuitement un véhicule pendant une durée très limitée. Ceci est utile pour vérifier la taille ou le poids d'un véhicule (par exemple, pour
+vérifier sa compatibilité avec vos outils) avant de l'acheter.
 
-Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire facturera des frais d'assurance de 3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
+Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire
+facturera des frais d'assurance de 3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
 
 Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSettings. Ce fichier permet de configurer:
 - duration: durée de l'essai routier en temps réel, en minutes (par défaut = 2)
@@ -125,9 +130,11 @@ Inviate segnalazioni di bug, feedback o suggerimenti sul mio GitHub: https://git
 ]]></it>
     <es><![CDATA[Prueba de conducción.
 
-Este mod te permite probar un vehículo gratis por tiempo limitado. Es útil si quieres comprobar el tamaño o el peso de un vehículo en particular (por ejemplo, para ver si es compatible con tus implementos) antes de comprarlo.
+Este mod te permite probar un vehículo gratis por tiempo limitado. Es útil si quieres comprobar el tamaño o el peso de un vehículo en particular (por ejemplo, para ver
+si es compatible con tus implementos) antes de comprarlo.
 
-Por defecto, la prueba de conducción es gratuita para vehículos de menos de $100,000 y dura 2 minutos en tiempo real. Si el vehículo supera los $100,000, el concesionario cobrará una tarifa de seguro del 3% del valor del vehículo. Solo se pueden probar vehículos en buen estado.
+Por defecto, la prueba de conducción es gratuita para vehículos de menos de $100,000 y dura 2 minutos en tiempo real. Si el vehículo supera los $100,000, el concesionario
+cobrará una tarifa de seguro del 3% del valor del vehículo. Solo se pueden probar vehículos en buen estado.
 
 Este mod crea un archivo "testDriveSettings.xml" en el directorio modSettings que permite configurar:
 - duration: la duración real de la prueba de conducción, en minutos (predeterminado = 2)
