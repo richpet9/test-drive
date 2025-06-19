@@ -38,7 +38,7 @@ function TestDriveSettings.newFromXml()
         settings.duration = getXMLInt(xmlFile, "testDriveSettings.duration")
         settings.insuranceThreshold = getXMLInt(xmlFile, "testDriveSettings.insuranceThreshold")
         settings.insuranceRatio = getXMLFloat(xmlFile, "testDriveSettings.insuranceRatio")
-        -- delete(xmlFile) -- From memory, not disk.
+        delete(xmlFile) -- From memory, not disk.
     end
 
     if settings.duration == nil then
@@ -67,7 +67,7 @@ function TestDriveSettings.saveToXml(settings, xml)
     setXMLFloat(xmlFile, "testDriveSettings.insuranceRatio", settings.insuranceRatio)
 
     saveXMLFile(xmlFile)
-    -- delete(xmlFile)
+    delete(xmlFile)
 end
 
 function TestDriveSettings.getOrCreateXmlFile()
