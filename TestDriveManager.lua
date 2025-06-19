@@ -23,7 +23,7 @@ function TestDriveManager:showFinishDialogAndReset()
 end
 
 function TestDriveManager:startTestDrive(storeItem, configurations)
-    if g_client == nil then
+    if g_client == nil or g_localPlayer == nil then
         return -- Only the client should reach this state.
     end
 
@@ -35,15 +35,19 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     local insurancePrice = self:getInsurancePrice(storeItem, configurations)
     local buyVehicleData = self:getBuyVehicleData(storeItem, configurations, insurancePrice)
 
-    local function doTestDrive(self, yes)
+    local function purchaseInsurance(self, yes)
         if yes then
+            -- TODO: Move into an event for multiplayer support.
+            local text = g_i18n:getText("rp_TEST_DRIVE_INSURANCE")
+            g_currentMission:addMoney(-insurancePrice, g_localPlayer.farmId, MoneyType.LEASING_COSTS, true)
+            g_currentMission.hud:showMoneyChange(MoneyType.LEASING_COSTS, text)
             self:finalizeTestDrive(buyVehicleData)
         end
     end
 
     if insurancePrice > 0 then
         -- TODO format money string with l10n.
-        YesNoDialog.show(doTestDrive, self,
+        YesNoDialog.show(purchaseInsurance, self,
                          "The dealer requires that this vehicle have insurance purchased prior to your test drive.\n" ..
                              ("They are requesting $%s for insurance.\n"):format(insurancePrice) ..
                              "Do you wish to continue?")

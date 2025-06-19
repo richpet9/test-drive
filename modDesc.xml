@@ -36,5 +36,13 @@
             <uk>Викупити</uk>
             <ru>Выупить</ru> -->
         </text>
+        <text name="rp_TEST_DRIVE_INSURANCE">
+            <en>Test drive insurance</en>
+            <!-- <de>Kaufen</de>
+            <fr>Acheter</fr>
+            <pl>Wykup</pl>
+            <uk>Викупити</uk>
+            <ru>Выупить</ru> -->
+        </text>
     </l10n>
 </modDesc>

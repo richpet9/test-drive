@@ -77,22 +77,6 @@ local function init()
     local settings = TestDriveSettings.newFromXml()
     TestDrive.manager = TestDriveManager.new(settings)
     TestDrive.isInitialized = true
-
-    print("")
-    print("")
-    print("")
-    DebugUtil.printTableRecursively(BuyVehicleEvent)
-    print("")
-    print("")
-    print("")
-    DebugUtil.printTableRecursively(BuyVehicleEvent.emptyNew())
-    print("")
-    print("")
-    print("")
-    DebugUtil.printTableRecursively(BuyVehicleEvent.new())
-    print("")
-    print("")
-    print("")
 end
 
 init()
