@@ -14,7 +14,7 @@ function TestDriveSettings.new(settings)
     self = setmetatable({}, TestDriveSettings_mt)
 
     self.duration = settings.duration
-    self.insurancePrice = settings.insuranceThreshold
+    self.insuranceThreshold = settings.insuranceThreshold
     self.insuranceRatio = settings.insuranceRatio
 
     return self
@@ -35,9 +35,9 @@ function TestDriveSettings.newFromXml()
      }
 
     if xmlFile then
-        settings.duration = getXMLInt(xmlFile, "TestDriveSettings.duration")
-        settings.insuranceThreshold = getXMLInt(xmlFile, "TestDriveSettings.insuranceThreshold")
-        settings.insuranceRatio = getXMLFloat(xmlFile, "TestDriveSettings.insuranceRatio")
+        settings.duration = getXMLInt(xmlFile, "testDriveSettings.duration")
+        settings.insuranceThreshold = getXMLInt(xmlFile, "testDriveSettings.insuranceThreshold")
+        settings.insuranceRatio = getXMLFloat(xmlFile, "testDriveSettings.insuranceRatio")
         -- delete(xmlFile) -- From memory, not disk.
     end
 
@@ -53,7 +53,7 @@ function TestDriveSettings.newFromXml()
         settings.insuranceRatio = TestDriveSettings.DEFAULT.insuranceRatio
     end
 
-    print(("[DEBUG] TestDrive: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s)"):format(
+    print(("[DEBUG] TestDriveSettings: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s)"):format(
               settings.duration, settings.insuranceThreshold, settings.insuranceRatio))
 
     return TestDriveSettings.new(settings)
@@ -62,9 +62,9 @@ end
 function TestDriveSettings.saveToXml(settings, xml)
     local xmlFile = xml or TestDriveSettings.getXmlFile()
 
-    setXMLInt(xmlFile, "TestDriveSettings.duration", settings.duration)
-    setXMLInt(xmlFile, "TestDriveSettings.insuranceThreshold", settings.insuranceThreshold)
-    setXMLFloat(xmlFile, "TestDriveSettings.insuranceRatio", settings.insuranceRatio)
+    setXMLInt(xmlFile, "testDriveSettings.duration", settings.duration)
+    setXMLInt(xmlFile, "testDriveSettings.insuranceThreshold", settings.insuranceThreshold)
+    setXMLFloat(xmlFile, "testDriveSettings.insuranceRatio", settings.insuranceRatio)
 
     saveXMLFile(xmlFile)
     -- delete(xmlFile)

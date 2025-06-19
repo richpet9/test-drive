@@ -23,29 +23,32 @@ function TestDriveManager:showFinishDialogAndReset()
 end
 
 function TestDriveManager:startTestDrive(storeItem, configurations)
+    if g_client == nil then
+        return -- Only the client should reach this state.
+    end
+
     if self:isTestDriveActive() then
         InfoDialog.show("You can only do one test drive at a time!")
         return
     end
 
     local insurancePrice = self:getInsurancePrice(storeItem, configurations)
-    local shouldContinue = insurancePrice == 0
+    local buyVehicleData = self:getBuyVehicleData(storeItem, configurations, insurancePrice)
 
-    local function purchaseInsurance(self, yes)
+    local function doTestDrive(self, yes)
         if yes then
-            -- TODO: deduct funds before finalizing test drive.
-            self:finalizeTestDrive(storeItem, configurations)
+            self:finalizeTestDrive(buyVehicleData)
         end
     end
 
     if insurancePrice > 0 then
         -- TODO format money string with l10n.
-        YesNoDialog.show(purchaseInsurance, self,
+        YesNoDialog.show(doTestDrive, self,
                          "The dealer requires that this vehicle have insurance purchased prior to your test drive.\n" ..
                              ("They are requesting $%s for insurance.\n"):format(insurancePrice) ..
                              "Do you wish to continue?")
     else
-        self:finalizeTestDrive(storeItem, configurations)
+        self:finalizeTestDrive(buyVehicleData)
     end
 end
 
@@ -57,10 +60,13 @@ function TestDriveManager:getInsurancePrice(storeItem, configurations)
     return math.ceil(buyPrice * self.settings.insuranceRatio)
 end
 
-function TestDriveManager:finalizeTestDrive(storeItem, configurations)
-    local data = self:getVehicleLoadingData(storeItem, configurations)
-    data:load(function(_, loadedvehicles)
-        self.vehicle = loadedvehicles[1]
+function TestDriveManager:finalizeTestDrive(buyVehicleData)
+    if g_client == nil then
+        return -- Only the client should reach this state.
+    end
+
+    buyVehicleData.onBought = function(data, boughtVehicles)
+        self.vehicle = boughtVehicles[1]
 
         local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
                             self.settings.duration)
@@ -72,17 +78,19 @@ function TestDriveManager:finalizeTestDrive(storeItem, configurations)
         end)
 
         TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
-    end)
+    end
+
+    g_client:getServerConnection():sendEvent(BuyVehicleEvent.new(buyVehicleData, buyCallback))
 end
 
-function TestDriveManager:getVehicleLoadingData(storeItem, configuration)
-    local data = VehicleLoadingData.new()
+function TestDriveManager:getBuyVehicleData(storeItem, configurations, insurancePrice, callback)
+    local data = BuyVehicleData.new()
     data:setStoreItem(storeItem)
     data:setConfigurations(configurations)
-    data:setLoadingPlace(g_currentMission.storeSpawnPlaces, g_currentMission.usedStorePlaces)
-    data:setPropertyState(VehiclePropertyState.LEASED)
+    data:setIsFreeOfCharge(insurancePrice <= 0)
+    data:setPrice(insurancePrice)
+    data:setLeaseVehicle(true)
     data:setOwnerFarmId(g_localPlayer.farmId)
-
     return data
 end
 
