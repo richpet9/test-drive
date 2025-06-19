@@ -58,21 +58,24 @@ function TestDriveManager:getInsurancePrice(storeItem, configurations)
 end
 
 function TestDriveManager:finalizeTestDrive(storeItem, configurations)
-    self:loadVehicle(storeItem, configurations)
+    local data = self:getVehicleLoadingData(storeItem, configurations)
+    data:load(function(_, loadedvehicles)
+        self.vehicle = loadedvehicles[1]
 
-    local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
-                        self.settings.duration)
+        local message = ("Your test drive has begun! The dealer will take back the vehicle in %s minutes."):format(
+                            self.settings.duration)
 
-    InfoDialog.show(message, function()
-        self.timer:setDuration(self.settings.duration * 60 * 1000)
-        self.timer:start()
-        self.vehicle.isTestDriveVehicle = true
+        InfoDialog.show(message, function()
+            self.timer:setDuration(self.settings.duration * 60 * 1000)
+            self.timer:start()
+            self.vehicle.isTestDriveVehicle = true
+        end)
+
+        TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
     end)
-
-    TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
 end
 
-function TestDriveManager:loadVehicle(storeItem, configurations)
+function TestDriveManager:getVehicleLoadingData(storeItem, configuration)
     local data = VehicleLoadingData.new()
     data:setStoreItem(storeItem)
     data:setConfigurations(configurations)
@@ -80,9 +83,7 @@ function TestDriveManager:loadVehicle(storeItem, configurations)
     data:setPropertyState(VehiclePropertyState.LEASED)
     data:setOwnerFarmId(g_localPlayer.farmId)
 
-    data:load(function(_, loadedvehicles)
-        self.vehicle = loadedvehicles[1]
-    end)
+    return data
 end
 
 function TestDriveManager:isTestDriveActive()
