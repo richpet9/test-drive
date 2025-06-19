@@ -16,10 +16,9 @@ function TestDriveManager.new(settings)
 end
 
 function TestDriveManager:showFinishDialogAndReset()
-    InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_END"), function()
-        self.vehicle:delete()
-        self.vehicle = nil
-    end)
+    self.vehicle:delete()
+    self.vehicle = nil
+    InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_END"))
 end
 
 function TestDriveManager:startTestDrive(storeItem, configurations)
