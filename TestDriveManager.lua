@@ -45,8 +45,9 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
     end
 
     if insurancePrice > 0 then
+        local insurancePriceString = g_i18n:formatMoney(insurancePrice)
         local insuranceRequired = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_REQUIRED")
-        local insuranceRequest = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_REQUEST"):format(insurancePrice)
+        local insuranceRequest = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_REQUEST"):format(insurancePriceString)
         local insuranceContinue = g_i18n:getText("rp_TEST_DRIVE_INSURANCE_CONTINUE")
 
         YesNoDialog.show(purchaseInsurance, self,
