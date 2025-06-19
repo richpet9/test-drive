@@ -73,7 +73,7 @@ function TestDriveManager:finalizeTestDrive(buyVehicleData)
     buyVehicleData.onBought = function(data, boughtVehicles)
         self.vehicle = boughtVehicles[1]
 
-        local message = (g_i18n:getText("rp_TEST_DRIVE_BEGIN")):format(self.settings.duration)
+        local message = g_i18n:getText("rp_TEST_DRIVE_BEGIN"):format(self.settings.duration)
 
         InfoDialog.show(message, function()
             self.timer:setDuration(self.settings.duration * 60 * 1000)
