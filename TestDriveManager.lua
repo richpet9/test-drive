@@ -99,10 +99,26 @@ function TestDriveManager:getBuyVehicleData(storeItem, configurations, insurance
 end
 
 function TestDriveManager:isTestDriveActive()
-    return self.vehicle ~= nil or self.timer:getIsRunning()
+    return self.vehicle ~= nil or self:isTimerRunning()
 end
 
 function TestDriveManager:reset()
     self.vehicle = nil
     self.timer:reset()
+end
+
+function TestDriveManager:startTimer()
+    self.timer:start()
+end
+
+function TestDriveManager:setTimerDuration(duration)
+    self.timer:setDuration(duration)
+end
+
+function TestDriveManager:getTimeLeft()
+    return self.timer.timeLeft
+end
+
+function TestDriveManager:isTimerRunning()
+    return self.timer:getIsRunning()
 end

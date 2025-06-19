@@ -12,8 +12,8 @@ Vehicle.load = Utils.appendedFunction(Vehicle.load, function(self)
         if isTestDriveVehicle and testDriveTimeLeft then
             self.isTestDriveVehicle = true
             TestDrive.manager.vehicle = self
-            TestDrive.manager.timer:setDuration(testDriveTimeLeft)
-            TestDrive.manager.timer:start()
+            TestDrive.manager:setTimerDuration(testDriveTimeLeft)
+            TestDrive.manager:startTimer()
 
             print(("[DEBUG] TestDrive: Loaded test drive vehicle from XML: timeLeft=%s"):format(testDriveTimeLeft))
         end
@@ -24,6 +24,6 @@ end)
 Vehicle.saveToXMLFile = Utils.appendedFunction(Vehicle.saveToXMLFile, function(self, xmlFile, key, _)
     if self.isTestDriveVehicle then
         xmlFile:setValue(key .. "#isTestDrive", true)
-        xmlFile:setValue(key .. "#testDriveTimeLeft", TestDrive.manager.timer.timeLeft)
+        xmlFile:setValue(key .. "#testDriveTimeLeft", TestDrive.manager:getTimeLeft())
     end
 end)
