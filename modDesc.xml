@@ -1,18 +1,144 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="96">
     <author>RichOPick</author>
-    <version>0.0.0.0</version>
+    <version>1.0.0.0</version>
     <title>
         <en>Test Drive</en>
-        <!-- <de>Mietvertrag Mit Kaufklausel</de>
-        <fr>Achat De Matériel Loué</fr>
-        <pl>Leasing Na Własność</pl>
-        <uk>Викуп Oрендованого Y Власність</uk>
-        <ru>Выкуп Aрендованного в Cобственность</ru> -->
+        <de>Probefahrt</de>
+        <pl>Jazda Próbna</pl>
+        <ru>Тест-драйв</ru>
+        <fr>Essai routier</fr>
+        <it>Prova su Strada</it>
+        <es>Examen de Conducir</es>
     </title>
     <description>
         <en><![CDATA[Test Drive.
+
+This mod lets you test drive a vehicle free of charge for a very limited length of time. This is useful if you want to
+check the size or weight of a particular vehicle (for example, to see if it will be compatible with your implements) prior
+to purchasing.
+
+By default, the test drive is free of charge for vehicles below $100,000, and lasts 2 minutes in real-time. If the vehicle
+is over $100,000, then the dealer will charge an insurance fee of 3% the value of the vehicle. Only drivable vehicles can
+be test driven.
+
+This mod creates a "testDriveSettings.xml" file in the modSettings directory which can be used to configure:
+- duration: the real-time length of the test drive, in minutes (default=2)
+- insuranceThreshold: the price threshold for charging insurance (default=100000)
+- insuranceRatio: the cost for insurance (when required) as a percent of total vehicle cost (default=0.003)
+
+NOTE: This mod is not yet compatible with multiplayer.
+NOTE: This mod in not compatible with other mods which use the "MENU_EXTRA_2" key on the shop screen (by default the 'C' key).
+
+Please leave bug reports, feedback, or suggestions on my GitHub: https://github.com/richpet9/test-drive.
 ]]></en>
+    <de><![CDATA[Probefahrt.
+
+Mit diesem Mod können Sie ein Fahrzeug für einen begrenzten Zeitraum kostenlos Probe fahren. Dies ist nützlich, um vor dem Kauf die Größe oder das Gewicht eines bestimmten Fahrzeugs zu überprüfen (z. B. um zu prüfen, ob es mit Ihren Anbaugeräten kompatibel ist).
+
+Standardmäßig ist die Probefahrt für Fahrzeuge unter 100.000 $ kostenlos und dauert 2 Minuten in Echtzeit. Bei Fahrzeugen über 100.000 $ berechnet der Händler eine Versicherungsgebühr in Höhe von 3 % des Fahrzeugwerts. Probefahrten sind nur mit fahrbereiten Fahrzeugen möglich.
+
+Dieser Mod erstellt die Datei „testDriveSettings.xml“ im Verzeichnis „modSettings“. Mit dieser Datei können folgende Einstellungen konfiguriert werden:
+- duration: Die Echtzeitdauer der Testfahrt in Minuten (Standard: 2)
+- insuranceThreshold: Die Preisschwelle für die Versicherungsgebühr (Standard: 100000)
+- insuranceRatio: Die Kosten für die Versicherung (falls erforderlich) als Prozentsatz der Gesamtfahrzeugkosten (Standard: 0.003)
+
+HINWEIS: Dieser Mod ist noch nicht mit dem Mehrspielermodus kompatibel.
+HINWEIS: Dieser Mod ist nicht mit anderen Mods kompatibel, die die Taste „MENU_EXTRA_2“ im Shop-Bildschirm verwenden (standardmäßig die Taste „C“).
+
+Bitte hinterlasst Fehlerberichte, Feedback und Vorschläge auf meinem GitHub: https://github.com/richpet9/test-drive.
+]]></de>
+    <pl><![CDATA[Jazda próbna.
+
+Ten mod pozwala na jazdę próbną pojazdem za darmo przez bardzo ograniczony czas. Jest to przydatne, jeśli chcesz
+sprawdzić rozmiar lub wagę konkretnego pojazdu (na przykład, aby zobaczyć, czy będzie kompatybilny z Twoimi narzędziami) przed
+zakupem.
+
+Domyślnie jazda próbna jest bezpłatna dla pojazdów poniżej 100.000$ i trwa 2 minuty w czasie rzeczywistym. Jeśli pojazd
+przekracza 100.000$, dealer naliczy opłatę ubezpieczeniową w wysokości 3% wartości pojazdu. Jazdę próbną można
+poddać tylko pojazdom nadającym się do jazdy.
+
+Ten mod tworzy plik „testDriveSettings.xml” w katalogu modSettings, którego można użyć do skonfigurowania:
+- duration: rzeczywistej długości jazdy testowej w minutach (domyślnie=2)
+- insuranceThreshold: progu cenowego dla naliczania opłat za ubezpieczenie (domyślnie=100000)
+- insuranceRatio: kosztu ubezpieczenia (gdy jest wymagane) jako procent całkowitego kosztu pojazdu (domyślnie=0,003)
+
+UWAGA: Ten mod nie jest jeszcze kompatybilny z trybem wieloosobowym.
+UWAGA: Ten mod nie jest kompatybilny z innymi modami, które używają klawisza „MENU_EXTRA_2” na ekranie sklepu (domyślnie klawisz „C”).
+
+Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub: https://github.com/richpet9/test-drive.
+]]></pl>
+    <ru><![CDATA[Тест-драйв.
+
+Этот мод позволяет вам бесплатно тест-драйвить транспортное средство в течение очень ограниченного периода времени. Это полезно, если вы хотите
+проверить размер или вес конкретного транспортного средства (например, чтобы узнать, будет ли оно совместимо с вашими навесными приспособлениями) перед
+покупкой.
+
+По умолчанию тест-драйв бесплатный для транспортных средств стоимостью менее 100.000 долларов США и длится 2 минуты в режиме реального времени. Если транспортное средство
+стоит более 100.000 долларов США, то дилер взимает страховой сбор в размере 3% от стоимости транспортного средства. Тест-драйв можно проводить только на транспортных средствах, на которых можно ездить.
+
+Этот мод создает файл "testDriveSettings.xml" в каталоге modSettings, который можно использовать для настройки:
+- duration: продолжительность тест-драйва в реальном времени в минутах (по умолчанию = 2)
+- insuranceThreshold: пороговая цена для взимания страховки (по умолчанию = 100000)
+- insuranceRatio: стоимость страховки (при необходимости) в процентах от общей стоимости автомобиля (по умолчанию = 0.003)
+
+ПРИМЕЧАНИЕ: этот мод пока несовместим с многопользовательской игрой.
+ПРИМЕЧАНИЕ: этот мод несовместим с другими модами, которые используют клавишу "MENU_EXTRA_2" на экране магазина (по умолчанию клавиша "C").
+
+Пожалуйста, оставляйте отчеты об ошибках, отзывы или предложения на моем GitHub: https://github.com/richpet9/test-drive.
+]]></ru>
+    <fr><![CDATA[Essai routier.
+
+Ce module vous permet d'essayer gratuitement un véhicule pendant une durée très limitée. Ceci est utile pour vérifier la taille ou le poids d'un véhicule (par exemple, pour vérifier sa compatibilité avec vos outils) avant de l'acheter.
+
+Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire facturera des frais d'assurance de 3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
+
+Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSettings. Ce fichier permet de configurer:
+- duration: durée de l'essai routier en temps réel, en minutes (par défaut = 2)
+- insuranceThreshold: seuil de facturation de l'assurance (par défaut = 100000)
+- insuranceRatio: coût de l'assurance (si nécessaire) en pourcentage du coût total du véhicule (par défaut = 0.003)
+
+REMARQUE: Ce mod n'est pas encore compatible avec le multijoueur.
+REMARQUE: Ce mod n'est pas compatible avec les autres mods utilisant la touche « MENU_EXTRA_2 » sur l'écran de la boutique (par défaut, la touche « C »).
+
+N'hésitez pas à signaler des bugs, à laisser vos commentaires ou à suggérer des solutions sur mon GitHub: https://github.com/richpet9/test-drive.
+]]></fr>
+    <it><![CDATA[Prova su strada.
+
+Questa mod ti permette di provare un veicolo gratuitamente per un periodo di tempo molto limitato. È utile se vuoi
+verificare le dimensioni o il peso di un particolare veicolo (ad esempio, per verificare se è compatibile con i tuoi attrezzi) prima
+dell'acquisto.
+
+Di default, il test su strada è gratuito per i veicoli di valore inferiore a $100.000 e dura 2 minuti in tempo reale. Se il veicolo
+ha un valore superiore a $100.000, il concessionario addebiterà una commissione assicurativa pari al 3% del valore del veicolo. Solo i veicoli guidabili
+possono essere sottoposti a prova su strada.
+
+Questa mod crea un file "testDriveSettings.xml" nella directory modSettings, che può essere utilizzato per configurare:
+- duration: la durata in tempo reale del test drive, in minuti (predefinito = 2)
+- insuranceThreshold: la soglia di prezzo per l'addebito dell'assicurazione (predefinito = 100000)
+- insuranceRatio: il costo dell'assicurazione (quando richiesta) come percentuale del costo totale del veicolo (predefinito = 0,003)
+
+NOTA: questa mod non è ancora compatibile con il multigiocatore.
+NOTA: questa mod non è compatibile con altre mod che utilizzano il tasto "MENU_EXTRA_2" nella schermata del negozio (di default il tasto "C").
+
+Inviate segnalazioni di bug, feedback o suggerimenti sul mio GitHub: https://github.com/richpet9/test-drive.
+]]></it>
+    <es><![CDATA[Prueba de conducción.
+
+Este mod te permite probar un vehículo gratis por tiempo limitado. Es útil si quieres comprobar el tamaño o el peso de un vehículo en particular (por ejemplo, para ver si es compatible con tus implementos) antes de comprarlo.
+
+Por defecto, la prueba de conducción es gratuita para vehículos de menos de $100,000 y dura 2 minutos en tiempo real. Si el vehículo supera los $100,000, el concesionario cobrará una tarifa de seguro del 3% del valor del vehículo. Solo se pueden probar vehículos en buen estado.
+
+Este mod crea un archivo "testDriveSettings.xml" en el directorio modSettings que permite configurar:
+- duration: la duración real de la prueba de conducción, en minutos (predeterminado = 2)
+- insuranceThreshold: el límite de precio para el cobro del seguro (predeterminado = 100000)
+- insuranceRatio: el coste del seguro (cuando sea necesario) como porcentaje del coste total del vehículo (predeterminado = 0,003)
+
+NOTA: Este mod aún no es compatible con el modo multijugador.
+NOTA: Este mod no es compatible con otros mods que usan la tecla "MENU_EXTRA_2" en la pantalla de la tienda (por defecto, la tecla "C").
+
+Por favor, dejen sus informes de errores, comentarios o sugerencias en mi GitHub: https://github.com/richpet9/test-drive.
+]]></es>
 
     </description>
 
@@ -30,67 +156,75 @@
     <l10n>
         <text name="rp_TEST_DRIVE">
             <en>Test drive</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Probefahrt</de>
+            <pl>Jazda próbna</pl>
+            <ru>Тест-драйв</ru>
+            <fr>Essai routier</fr>
+            <it>Prova su strada</it>
+            <es>Prueba de conducción</es>
         </text>
         <text name="rp_TEST_DRIVE_INSURANCE">
             <en>Test drive insurance</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Probefahrtversicherung</de>
+            <pl>Przetestuj ubezpieczenie</pl>
+            <ru>Страхование тест-драйва</ru>
+            <fr>Assurance essai routier</fr>
+            <it>Assicurazione per test drive</it>
+            <es>Seguro de prueba de conducción</es>
         </text>
         <text name="rp_TEST_DRIVE_INSURANCE_REQUIRED">
             <en>The dealer requires that this vehicle have insurance purchased prior to your test drive.</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Der Händler verlangt, dass für dieses Fahrzeug vor Ihrer Probefahrt eine Versicherung abgeschlossen wird.</de>
+            <pl>Dealer wymaga, aby przed jazdą próbną pojazd był ubezpieczony.</pl>
+            <ru>Дилер требует, чтобы перед тест-драйвом на автомобиль была приобретена страховка.</ru>
+            <fr>Le concessionnaire exige que ce véhicule soit assuré avant votre essai routier.</fr>
+            <it>Il concessionario richiede che questo veicolo sia assicurato prima del test drive.</it>
+            <es>El concesionario requiere que este vehículo tenga seguro adquirido antes de su prueba de manejo.</es>
         </text>
         <text name="rp_TEST_DRIVE_INSURANCE_REQUEST">
             <en>They are requesting %s for insurance.</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Sie verlangen %s für die Versicherung.</de>
+            <pl>Żądają %s na ubezpieczenie.</pl>
+            <ru>Они просят %s за страховку.</ru>
+            <fr>Ils demandent %s pour l'assurance.</fr>
+            <it>Chiedono %s per l'assicurazione.</it>
+            <es>Ellas están solicitando %s para el seguro.</es>
         </text>
         <text name="rp_TEST_DRIVE_INSURANCE_CONTINUE">
             <en>Do you wish to continue?</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Möchten sie fortfahren?</de>
+            <pl>Czy chcesz kontynuować?</pl>
+            <ru>Хотите продолжить?</ru>
+            <fr>Souhaitez-vous continuer ?</fr>
+            <it>Vuoi continuare?</it>
+            <es>¿Deseas continuar?</es>
         </text>
         <text name="rp_TEST_DRIVE_BEGIN">
             <en>Your test drive has begun! The dealer will take back the vehicle in %s minutes.</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Ihre probefahrt hat begonnen! Der händler nimmt das fahrzeug in %s minuten zurück.</de>
+            <pl>Rozpoczęła się jazda próbna! Dealer odbierze pojazd za %s minut.</pl>
+            <ru>Ваш тест-драйв начался! Дилер заберет автомобиль обратно через %s минут.</ru>
+            <fr>Votre essai routier est commencé! Le concessionnaire reprendra votre véhicule dans %s minutes.</fr>
+            <it>Il tuo test drive è iniziato! Il concessionario ritirerà il veicolo tra %s minuti.</it>
+            <es>¡Tu prueba de manejo ha comenzado! El concesionario recogerá el vehículo en %s minutos.</es>
         </text>
         <text name="rp_TEST_DRIVE_END">
             <en>Your test drive has finished! The dealer has taken back the vehicle.</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Ihre Probefahrt ist beendet! Der Händler hat das Fahrzeug zurückgenommen.</de>
+            <pl>Twoja jazda próbna dobiegła końca! Dealer przyjął z powrotem pojazd.</pl>
+            <ru>Ваш тест-драйв окончен! Дилер забрал автомобиль обратно.</ru>
+            <fr>Votre essai routier est terminé! Le concessionnaire a repris le véhicule.</fr>
+            <it>Il tuo test drive è terminato! Il concessionario ha ritirato il veicolo.</it>
+            <es>¡Tu prueba de manejo ha terminado! El concesionario ha recuperado el vehículo.</es>
         </text>
         <text name="rp_TEST_DRIVE_LIMIT">
             <en>You can only do one test drive at a time!</en>
-            <!-- <de>Kaufen</de>
-            <fr>Acheter</fr>
-            <pl>Wykup</pl>
-            <uk>Викупити</uk>
-            <ru>Выупить</ru> -->
+            <de>Es ist jeweils nur eine Probefahrt möglich!</de>
+            <pl>Możesz odbyć tylko jedną jazdę próbną na raz!</pl>
+            <ru>Вы можете пройти только один тест-драйв за раз!</ru>
+            <fr>Vous ne pouvez faire qu'un seul essai routier à la fois!</fr>
+            <it>Puoi effettuare solo un test drive alla volta!</it>
+            <es>¡Sólo puedes realizar una prueba de conducción a la vez!</es>
         </text>
     </l10n>
 </modDesc>
