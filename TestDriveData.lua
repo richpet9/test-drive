@@ -8,7 +8,7 @@ Vehicle.load = Utils.appendedFunction(Vehicle.load, function(self)
     local savegame = self.savegame
     if savegame ~= nil then
         local isTestDriveVehicle = savegame.xmlFile:getValue(savegame.key .. "#isTestDrive", false)
-        local testDriveTimeLeft = savegame.xmlFile:getValue(savegame.key .. "#testDriveTimeLeft", 1000)
+        local testDriveTimeLeft = savegame.xmlFile:getValue(savegame.key .. "#testDriveTimeLeft", nil)
         if isTestDriveVehicle and testDriveTimeLeft then
             self.isTestDriveVehicle = true
             TestDrive.manager.vehicle = self
