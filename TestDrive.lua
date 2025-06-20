@@ -4,7 +4,6 @@ TestDrive.modName = g_currentModName
 
 TestDrive.isInitialized = false
 TestDrive.isButtonAdded = false
-TestDrive.vehicle = nil
 TestDrive.manager = nil
 
 ShopConfigScreen.onVehiclesLoaded = Utils.appendedFunction(ShopConfigScreen.onVehiclesLoaded, function(self)
