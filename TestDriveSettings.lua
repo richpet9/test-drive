@@ -12,7 +12,7 @@ TestDriveSettings = {}
 TestDriveSettings.DEFAULT = {
     duration = 2, -- minutes.
     insuranceThreshold = 100000,
-    insuranceRatio = 0.003, -- 3% of total price.
+    insuranceRatio = 0.003, -- 0.3% of total price.
     onlyDrivables = true,
 }
 

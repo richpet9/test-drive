@@ -19,7 +19,7 @@ check the size or weight of a particular vehicle (for example, to see if it will
 to purchasing.
 
 By default, the test drive is free of charge for vehicles below $100,000, and lasts 2 minutes in real-time. If the vehicle
-is over $100,000, then the dealer will charge an insurance fee of 3% the value of the vehicle. Only drivable vehicles can
+is over $100,000, then the dealer will charge an insurance fee of 0.3% the value of the vehicle. Only drivable vehicles can
 be test driven.
 
 This mod creates a "testDriveSettings.xml" file in the modSettings directory which can be used to configure:
@@ -39,7 +39,7 @@ Mit diesem Mod können Sie ein Fahrzeug für einen begrenzten Zeitraum kostenlos
 bestimmten Fahrzeugs zu überprüfen (z. B. um zu prüfen, ob es mit Ihren Anbaugeräten kompatibel ist).
 
 Standardmäßig ist die Probefahrt für Fahrzeuge unter 100.000 $ kostenlos und dauert 2 Minuten in Echtzeit. Bei Fahrzeugen über 100.000 $ berechnet der Händler eine
-Versicherungsgebühr in Höhe von 3 % des Fahrzeugwerts. Probefahrten sind nur mit fahrbereiten Fahrzeugen möglich.
+Versicherungsgebühr in Höhe von 0,3% des Fahrzeugwerts. Probefahrten sind nur mit fahrbereiten Fahrzeugen möglich.
 
 Dieser Mod erstellt die Datei „testDriveSettings.xml“ im Verzeichnis „modSettings“. Mit dieser Datei können folgende Einstellungen konfiguriert werden:
 - duration: Die Echtzeitdauer der Testfahrt in Minuten (Standard: 2)
@@ -59,7 +59,7 @@ sprawdzić rozmiar lub wagę konkretnego pojazdu (na przykład, aby zobaczyć, c
 zakupem.
 
 Domyślnie jazda próbna jest bezpłatna dla pojazdów poniżej 100.000$ i trwa 2 minuty w czasie rzeczywistym. Jeśli pojazd
-przekracza 100.000$, dealer naliczy opłatę ubezpieczeniową w wysokości 3% wartości pojazdu. Jazdę próbną można
+przekracza 100.000$, dealer naliczy opłatę ubezpieczeniową w wysokości 0,3% wartości pojazdu. Jazdę próbną można
 poddać tylko pojazdom nadającym się do jazdy.
 
 Ten mod tworzy plik „testDriveSettings.xml” w katalogu modSettings, którego można użyć do skonfigurowania:
@@ -80,7 +80,7 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 покупкой.
 
 По умолчанию тест-драйв бесплатный для транспортных средств стоимостью менее 100.000 долларов США и длится 2 минуты в режиме реального времени. Если транспортное средство
-стоит более 100.000 долларов США, то дилер взимает страховой сбор в размере 3% от стоимости транспортного средства. Тест-драйв можно проводить только на транспортных
+стоит более 100.000 долларов США, то дилер взимает страховой сбор в размере 0,3% от стоимости транспортного средства. Тест-драйв можно проводить только на транспортных
 средствах, на которых можно ездить.
 
 Этот мод создает файл "testDriveSettings.xml" в каталоге modSettings, который можно использовать для настройки:
@@ -100,7 +100,7 @@ Ce module vous permet d'essayer gratuitement un véhicule pendant une durée tr�
 vérifier sa compatibilité avec vos outils) avant de l'acheter.
 
 Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire
-facturera des frais d'assurance de 3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
+facturera des frais d'assurance de 0,3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
 
 Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSettings. Ce fichier permet de configurer:
 - duration: durée de l'essai routier en temps réel, en minutes (par défaut = 2)
@@ -120,7 +120,7 @@ verificare le dimensioni o il peso di un particolare veicolo (ad esempio, per ve
 dell'acquisto.
 
 Di default, il test su strada è gratuito per i veicoli di valore inferiore a $100.000 e dura 2 minuti in tempo reale. Se il veicolo
-ha un valore superiore a $100.000, il concessionario addebiterà una commissione assicurativa pari al 3% del valore del veicolo. Solo i veicoli guidabili
+ha un valore superiore a $100.000, il concessionario addebiterà una commissione assicurativa pari al 0,3% del valore del veicolo. Solo i veicoli guidabili
 possono essere sottoposti a prova su strada.
 
 Questa mod crea un file "testDriveSettings.xml" nella directory modSettings, che può essere utilizzato per configurare:
@@ -140,13 +140,13 @@ Este mod te permite probar un vehículo gratis por tiempo limitado. Es útil si 
 si es compatible con tus implementos) antes de comprarlo.
 
 Por defecto, la prueba de conducción es gratuita para vehículos de menos de $100,000 y dura 2 minutos en tiempo real. Si el vehículo supera los $100,000, el concesionario
-cobrará una tarifa de seguro del 3% del valor del vehículo. Solo se pueden probar vehículos en buen estado.
+cobrará una tarifa de seguro del 0,3% del valor del vehículo. Solo se pueden probar vehículos en buen estado.
 
 Este mod crea un archivo "testDriveSettings.xml" en el directorio modSettings que permite configurar:
 - duration: la duración real de la prueba de conducción, en minutos (predeterminado = 2)
 - insuranceThreshold: el límite de precio para el cobro del seguro (predeterminado = 100000)
 - insuranceRatio: el coste del seguro (cuando sea necesario) como porcentaje del coste total del vehículo (predeterminado = 0,003)
-- onlyDrivables: si es false, se pueden probar todos los vehículos (valor predeterminado = true)
+- onlyDrivables: si es false, se pueden probar todos los vehículos (predeterminado = true)
 
 NOTA: Este mod aún no es compatible con el modo multijugador.
 NOTA: Este mod no es compatible con otros mods que usan la tecla "MENU_EXTRA_2" en la pantalla de la tienda (por defecto, la tecla "C").
