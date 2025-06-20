@@ -26,6 +26,7 @@ This mod creates a "testDriveSettings.xml" file in the modSettings directory whi
 - duration: the real-time length of the test drive, in minutes (default=2)
 - insuranceThreshold: the price threshold for charging insurance (default=100000)
 - insuranceRatio: the cost for insurance (when required) as a percent of total vehicle cost (default=0.003)
+- onlyDrivables: if false, all vehicles can be test driven (default=true)
 
 NOTE: This mod is not yet compatible with multiplayer.
 NOTE: This mod in not compatible with other mods which use the "MENU_EXTRA_2" key on the shop screen (by default the 'C' key).
@@ -44,6 +45,7 @@ Dieser Mod erstellt die Datei „testDriveSettings.xml“ im Verzeichnis „modS
 - duration: Die Echtzeitdauer der Testfahrt in Minuten (Standard: 2)
 - insuranceThreshold: Die Preisschwelle für die Versicherungsgebühr (Standard: 100000)
 - insuranceRatio: Die Kosten für die Versicherung (falls erforderlich) als Prozentsatz der Gesamtfahrzeugkosten (Standard: 0.003)
+- onlyDrivables: wenn false, können alle Fahrzeuge Probe gefahren werden (Standard: true)
 
 HINWEIS: Dieser Mod ist noch nicht mit dem Mehrspielermodus kompatibel.
 HINWEIS: Dieser Mod ist nicht mit anderen Mods kompatibel, die die Taste „MENU_EXTRA_2“ im Shop-Bildschirm verwenden (standardmäßig die Taste „C“).
@@ -64,6 +66,7 @@ Ten mod tworzy plik „testDriveSettings.xml” w katalogu modSettings, którego
 - duration: rzeczywistej długości jazdy testowej w minutach (domyślnie=2)
 - insuranceThreshold: progu cenowego dla naliczania opłat za ubezpieczenie (domyślnie=100000)
 - insuranceRatio: kosztu ubezpieczenia (gdy jest wymagane) jako procent całkowitego kosztu pojazdu (domyślnie=0,003)
+- onlyDrivables: jeśli false, można przetestować jazdę wszystkimi pojazdami (domyślnie=true)
 
 UWAGA: Ten mod nie jest jeszcze kompatybilny z trybem wieloosobowym.
 UWAGA: Ten mod nie jest kompatybilny z innymi modami, które używają klawisza „MENU_EXTRA_2” na ekranie sklepu (domyślnie klawisz „C”).
@@ -84,6 +87,7 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 - duration: продолжительность тест-драйва в реальном времени в минутах (по умолчанию = 2)
 - insuranceThreshold: пороговая цена для взимания страховки (по умолчанию = 100000)
 - insuranceRatio: стоимость страховки (при необходимости) в процентах от общей стоимости автомобиля (по умолчанию = 0.003)
+- onlyDrivables: если false, все транспортные средства могут быть протестированы (по умолчанию = true)
 
 ПРИМЕЧАНИЕ: этот мод пока несовместим с многопользовательской игрой.
 ПРИМЕЧАНИЕ: этот мод несовместим с другими модами, которые используют клавишу "MENU_EXTRA_2" на экране магазина (по умолчанию клавиша "C").
@@ -95,16 +99,17 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 Ce module vous permet d'essayer gratuitement un véhicule pendant une durée très limitée. Ceci est utile pour vérifier la taille ou le poids d'un véhicule (par exemple, pour
 vérifier sa compatibilité avec vos outils) avant de l'acheter.
 
-Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire
+Par défaut, l'essai routier est gratuit pour les véhicules de moins de 100.000$ et dure 2 minutes en temps réel. Si le véhicule vaut plus de 100.000$, le concessionnaire
 facturera des frais d'assurance de 3% de sa valeur. Seuls les véhicules en état de rouler peuvent être essayés.
 
-Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSettings. Ce fichier permet de configurer:
-- duration: durée de l'essai routier en temps réel, en minutes (par défaut = 2)
-- insuranceThreshold: seuil de facturation de l'assurance (par défaut = 100000)
-- insuranceRatio: coût de l'assurance (si nécessaire) en pourcentage du coût total du véhicule (par défaut = 0.003)
+Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSettings. Ce fichier permet de configurer:
+- duration: durée de l'essai routier en temps réel, en minutes (par défaut = 2)
+- insuranceThreshold: seuil de facturation de l'assurance (par défaut = 100000)
+- insuranceRatio: coût de l'assurance (si nécessaire) en pourcentage du coût total du véhicule (par défaut = 0.003)
+- onlyDrivables : si false, tous les véhicules peuvent être testés (par défaut = true)
 
 REMARQUE: Ce mod n'est pas encore compatible avec le multijoueur.
-REMARQUE: Ce mod n'est pas compatible avec les autres mods utilisant la touche « MENU_EXTRA_2 » sur l'écran de la boutique (par défaut, la touche « C »).
+REMARQUE: Ce mod n'est pas compatible avec les autres mods utilisant la touche « MENU_EXTRA_2 » sur l'écran de la boutique (par défaut, la touche « C »).
 
 N'hésitez pas à signaler des bugs, à laisser vos commentaires ou à suggérer des solutions sur mon GitHub: https://github.com/richpet9/test-drive.
 ]]></fr>
@@ -122,6 +127,7 @@ Questa mod crea un file "testDriveSettings.xml" nella directory modSettings, che
 - duration: la durata in tempo reale del test drive, in minuti (predefinito = 2)
 - insuranceThreshold: la soglia di prezzo per l'addebito dell'assicurazione (predefinito = 100000)
 - insuranceRatio: il costo dell'assicurazione (quando richiesta) come percentuale del costo totale del veicolo (predefinito = 0,003)
+- onlyDrivables: se false, tutti i veicoli possono essere testati su strada (predefinito = true)
 
 NOTA: questa mod non è ancora compatibile con il multigiocatore.
 NOTA: questa mod non è compatibile con altre mod che utilizzano il tasto "MENU_EXTRA_2" nella schermata del negozio (di default il tasto "C").
@@ -140,6 +146,7 @@ Este mod crea un archivo "testDriveSettings.xml" en el directorio modSettings qu
 - duration: la duración real de la prueba de conducción, en minutos (predeterminado = 2)
 - insuranceThreshold: el límite de precio para el cobro del seguro (predeterminado = 100000)
 - insuranceRatio: el coste del seguro (cuando sea necesario) como porcentaje del coste total del vehículo (predeterminado = 0,003)
+- onlyDrivables: si es false, se pueden probar todos los vehículos (valor predeterminado = true)
 
 NOTA: Este mod aún no es compatible con el modo multijugador.
 NOTA: Este mod no es compatible con otros mods que usan la tecla "MENU_EXTRA_2" en la pantalla de la tienda (por defecto, la tecla "C").

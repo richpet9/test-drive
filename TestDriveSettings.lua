@@ -4,6 +4,7 @@ TestDriveSettings.DEFAULT = {
     duration = 2, -- minutes.
     insuranceThreshold = 100000,
     insuranceRatio = 0.003, -- 3% of total price.
+    onlyDrivables = true,
 }
 
 TestDriveSettings.attemptedXmlLoad = false
@@ -16,6 +17,7 @@ function TestDriveSettings.new(settings)
     self.duration = settings.duration
     self.insuranceThreshold = settings.insuranceThreshold
     self.insuranceRatio = settings.insuranceRatio
+    self.onlyDrivables = settings.onlyDrivables
 
     return self
 end
@@ -38,6 +40,7 @@ function TestDriveSettings.newFromXml()
         settings.duration = getXMLInt(xmlFile, "testDriveSettings.duration")
         settings.insuranceThreshold = getXMLInt(xmlFile, "testDriveSettings.insuranceThreshold")
         settings.insuranceRatio = getXMLFloat(xmlFile, "testDriveSettings.insuranceRatio")
+        settings.onlyDrivables = getXMLBool(xmlFile, "testDriveSettings.onlyDrivables")
         delete(xmlFile) -- From memory, not disk.
     end
 
@@ -53,8 +56,13 @@ function TestDriveSettings.newFromXml()
         settings.insuranceRatio = TestDriveSettings.DEFAULT.insuranceRatio
     end
 
-    print(("[DEBUG] TestDriveSettings: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s)"):format(
-              settings.duration, settings.insuranceThreshold, settings.insuranceRatio))
+    if settings.onlyDrivables == nil then
+        settings.onlyDrivables = TestDriveSettings.DEFAULT.onlyDrivables
+    end
+
+    print(
+        ("[DEBUG] TestDriveSettings: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s, onlyDrivables=%s)"):format(
+            settings.duration, settings.insuranceThreshold, settings.insuranceRatio, settings.onlyDrivables))
 
     return TestDriveSettings.new(settings)
 end
@@ -65,6 +73,7 @@ function TestDriveSettings.saveToXml(settings, xml)
     setXMLInt(xmlFile, "testDriveSettings.duration", settings.duration)
     setXMLInt(xmlFile, "testDriveSettings.insuranceThreshold", settings.insuranceThreshold)
     setXMLFloat(xmlFile, "testDriveSettings.insuranceRatio", settings.insuranceRatio)
+    setXMLBool(xmlFile, "testDriveSettings.onlyDrivables", settings.onlyDrivables)
 
     saveXMLFile(xmlFile)
     delete(xmlFile)
