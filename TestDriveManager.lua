@@ -124,7 +124,7 @@ function TestDriveManager:update()
         if self.progressBar == nil then
             local label = g_i18n:getText("rp_TEST_DRIVE")
             local title = self.vehicle:getFullName()
-            self.progressBar = g_currentMission.hud:addSideNotificationProgressBar(label, title, 0.5)
+            self.progressBar = g_currentMission.hud:addSideNotificationProgressBar(label, title, progress)
         end
 
         self.progressBar.progress = progress
