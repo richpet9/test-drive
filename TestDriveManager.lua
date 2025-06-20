@@ -7,6 +7,7 @@ function TestDriveManager.new(settings)
 
     self.settings = settings
     self.vehicle = nil
+    self.progressBar = nil
     self.timer = Timer.new(self.settings.duration * 60 * 1000)
     self.timer:setFinishCallback(function()
         self:showFinishDialogAndReset()
@@ -17,7 +18,7 @@ end
 
 function TestDriveManager:showFinishDialogAndReset()
     self.vehicle:delete()
-    self.vehicle = nil
+    self:reset()
     InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_END"))
 end
 
@@ -104,11 +105,34 @@ function TestDriveManager:getBuyVehicleData(storeItem, configurations, insurance
     return data
 end
 
+function TestDriveManager:update()
+    if g_localPlayer == nil then
+        return
+    end
+
+    if self:isTestDriveActive() then
+        local progress = self.timer:getTimePassed() / self.timer:getDuration()
+
+        if self.progressBar == nil then
+            local label = g_i18n:getText("rp_TEST_DRIVE")
+            local title = self.vehicle:getFullName()
+            self.progressBar = g_currentMission.hud:addSideNotificationProgressBar(label, title, 0.5)
+        end
+
+        self.progressBar.progress = progress
+        g_currentMission.hud:markSideNotificationProgressBarForDrawing(self.progressBar)
+    end
+end
+
 function TestDriveManager:isTestDriveActive()
     return self.vehicle ~= nil or self:isTimerRunning()
 end
 
 function TestDriveManager:reset()
+    if self.progressBar ~= nil then
+        g_currentMission.hud:removeSideNotificationProgressBar(self.progressBar)
+        self.progressBar = nil
+    end
     self.vehicle = nil
     self.timer:reset()
 end

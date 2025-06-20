@@ -69,6 +69,12 @@ Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
     end
 end)
 
+BaseMission.update = Utils.appendedFunction(BaseMission.update, function()
+    if TestDrive.manager ~= nil then
+        TestDrive.manager:update()
+    end
+end)
+
 local function init()
     if TestDrive.isInitialized then
         return
@@ -80,3 +86,12 @@ local function init()
 end
 
 init()
+
+SideNotification.draw = Utils.appendedFunction(SideNotification.draw, function(self)
+    for _, progressBar in ipairs(self.progressBars) do
+        print(("[DEBUG] TestDrive: Progress bar from draw (notVisible): %s"):format(progressBar.progress))
+        if progressBar.isVisible then
+            print(("[DEBUG] TestDrive: Progress bar isVisible: %s"):format(progressBar.isVisible))
+        end
+    end
+end)
