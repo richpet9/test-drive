@@ -1,5 +1,6 @@
 TestDriveSettings = {}
 
+-- These are overridden by the modSettings/testDriveSettings.xml file, if those values are valid.
 TestDriveSettings.DEFAULT = {
     duration = 2, -- minutes.
     insuranceThreshold = 100000,
