@@ -15,21 +15,6 @@ ShopConfigScreen.onClose = Utils.appendedFunction(ShopConfigScreen.onClose, func
     TestDrive.removeTestDriveButton(self)
 end)
 
-function TestDrive.createTestDriveButton(shopConfigScreen)
-    if shopConfigScreen.testDriveButton ~= nil then
-        return
-    end
-
-    local testDriveButton = shopConfigScreen.buyButton:clone(shopConfigScreen.buttonsPanel)
-    testDriveButton:setText(g_i18n:getText("rp_TEST_DRIVE"))
-    testDriveButton:setInputAction("MENU_EXTRA_2")
-    testDriveButton.onClickCallback = function()
-        TestDrive.manager:startTestDrive(shopConfigScreen.storeItem, shopConfigScreen.configurations)
-    end
-
-    return testDriveButton
-end
-
 function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
     if TestDrive.manager:isTestDriveActive() or TestDrive.isButtonAdded then
         return
@@ -47,6 +32,21 @@ function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
 
     shopConfigScreen.buyButton.parent:addElement(shopConfigScreen.testDriveButton)
     TestDrive.isButtonAdded = true
+end
+
+function TestDrive.createTestDriveButton(shopConfigScreen)
+    if shopConfigScreen.testDriveButton ~= nil then
+        return
+    end
+
+    local testDriveButton = shopConfigScreen.buyButton:clone(shopConfigScreen.buttonsPanel)
+    testDriveButton:setText(g_i18n:getText("rp_TEST_DRIVE"))
+    testDriveButton:setInputAction("MENU_EXTRA_2")
+    testDriveButton.onClickCallback = function()
+        TestDrive.manager:startTestDrive(shopConfigScreen.storeItem, shopConfigScreen.configurations)
+    end
+
+    return testDriveButton
 end
 
 function TestDrive.removeTestDriveButton(shopConfigScreen)
