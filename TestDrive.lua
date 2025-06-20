@@ -87,11 +87,3 @@ end
 
 init()
 
-SideNotification.draw = Utils.appendedFunction(SideNotification.draw, function(self)
-    for _, progressBar in ipairs(self.progressBars) do
-        print(("[DEBUG] TestDrive: Progress bar from draw (notVisible): %s"):format(progressBar.progress))
-        if progressBar.isVisible then
-            print(("[DEBUG] TestDrive: Progress bar isVisible: %s"):format(progressBar.isVisible))
-        end
-    end
-end)
