@@ -90,7 +90,7 @@ function TestDriveManager:finalizeTestDrive(buyVehicleData)
         TestDrive.removeTestDriveButton(g_gui.screenControllers[ShopConfigScreen])
     end
 
-    g_client:getServerConnection():sendEvent(BuyVehicleEvent.new(buyVehicleData, buyCallback))
+    g_client:getServerConnection():sendEvent(BuyVehicleEvent.new(buyVehicleData))
 end
 
 function TestDriveManager:getBuyVehicleData(storeItem, configurations, insurancePrice, callback)
