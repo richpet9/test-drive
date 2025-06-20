@@ -62,8 +62,8 @@ end
 -- This function handles if the test drive vehicle is removed by anything other than this mod.
 Vehicle.delete = Utils.prependedFunction(Vehicle.delete, function(self)
     if TestDrive.manager.vehicle ~= nil and TestDrive.manager.vehicle:getUniqueId() == self:getUniqueId() then
-        if TestDrive.manager.timer:getIsRunning() then
-            -- Delete was not triggered by test drive ending.
+        if TestDrive.manager:isTimerRunning() then
+            -- Vehicle delete was not triggered by timer expiring, so reset everything.
             TestDrive.manager:reset()
         end
     end
