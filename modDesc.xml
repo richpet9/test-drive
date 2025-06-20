@@ -240,5 +240,14 @@ Por favor, dejen sus informes de errores, comentarios o sugerencias en mi GitHub
             <it>Puoi effettuare solo un test drive alla volta!</it>
             <es>¡Sólo puedes realizar una prueba de conducción a la vez!</es>
         </text>
+        <text name="rp_TEST_DRIVE_INSURANCE_INSUFFICIENT">
+            <en>Not enough money to purchase insurance!</en>
+            <de>Nicht genug Geld, um eine Versicherung abzuschließen!</de>
+            <pl>Za mało pieniędzy na zakup ubezpieczenia!</pl>
+            <ru>Недостаточно денег для покупки страховки!</ru>
+            <fr>Pas assez d'argent pour acheter une assurance !</fr>
+            <it>Soldi insufficienti per acquistare l'assicurazione!</it>
+            <es>¡No hay suficiente dinero para comprar un seguro!</es>
+        </text>
     </l10n>
 </modDesc>

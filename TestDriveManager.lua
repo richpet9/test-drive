@@ -36,6 +36,12 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
 
     local function purchaseInsurance(self, yes)
         if yes then
+            local enoughMoney = g_currentMission:getMoney() > insurancePrice
+            if not enoughMoney then
+                InfoDialog.show(g_i18n:getText("rp_TEST_DRIVE_INSURANCE_INSUFFICIENT"))
+                return
+            end
+
             -- TODO: Move into an event for multiplayer support.
             local text = g_i18n:getText("rp_TEST_DRIVE_INSURANCE")
             g_currentMission:addMoney(-insurancePrice, g_localPlayer.farmId, MoneyType.LEASING_COSTS, true)
