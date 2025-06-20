@@ -111,7 +111,6 @@ end
 function TestDriveManager:reset()
     self.vehicle = nil
     self.timer:reset()
-    self.timer:setDuration(self.settings.duration * 60 * 1000)
 end
 
 function TestDriveManager:startTimer()
