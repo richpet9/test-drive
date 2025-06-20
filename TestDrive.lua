@@ -56,7 +56,6 @@ function TestDrive.removeTestDriveButton(shopConfigScreen)
 
     shopConfigScreen.testDriveButton.parent:removeElement(shopConfigScreen.testDriveButton)
     TestDrive.isButtonAdded = false
-    print("[DEBUG] TestDrive: Removed test drive button.")
 end
 
 -- This function handles if the test drive vehicle is removed by anything other than this mod.

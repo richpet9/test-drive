@@ -97,7 +97,7 @@ function TestDriveSettings.getXmlFile()
 
     if xmlFilePath ~= nil then
         if not fileExists(xmlFilePath) then
-            print("[DEBUG] Attempted to open non-existent XML File: " .. xmlFilePath)
+            print("[DEBUG] TestDriveSettings: Attempted to open non-existent XML File: " .. xmlFilePath)
             return
         end
 
@@ -114,8 +114,6 @@ end
 
 function TestDriveSettings.createNewSettingsXmlFile(xmlFilePath)
     local xmlFilePath = TestDriveSettings.getXmlFilePath()
-
-    print("[DEBUG] TestDrive: Creating XML file: " .. xmlFilePath)
     local xmlFile = createXMLFile("testDriveSettings", xmlFilePath, "testDriveSettings")
 
     TestDriveSettings.saveToXml(TestDriveSettings.DEFAULT, xmlFile)

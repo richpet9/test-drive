@@ -14,8 +14,6 @@ Vehicle.load = Utils.appendedFunction(Vehicle.load, function(self)
             TestDrive.manager.vehicle = self
             TestDrive.manager:setTimerDuration(testDriveTimeLeft)
             TestDrive.manager:startTimer()
-
-            print(("[DEBUG] TestDrive: Loaded test drive vehicle from XML: timeLeft=%s"):format(testDriveTimeLeft))
         end
         self.isTestDriveVehicle = false
     end
