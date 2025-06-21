@@ -28,6 +28,10 @@ function TestDrive.maybeAddTestDriveButton(shopConfigScreen)
     end
 
     local vehicle = shopConfigScreen.previewVehicles[1]
+    if vehicle == nil then
+        return
+    end
+
     local isDrivable = SpecializationUtil.hasSpecialization(Drivable, vehicle.specializations)
     if TestDrive.manager.settings.onlyDrivables and not isDrivable then
         return
