@@ -118,7 +118,7 @@ function TestDriveManager:update()
         return
     end
 
-    if self:isTestDriveActive() then
+    if self:isTestDriveActive() and self.timer:getDuration() > 0 then
         local progress = self.timer:getTimePassed() / self.timer:getDuration()
 
         if self.progressBar == nil then
