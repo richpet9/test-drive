@@ -69,10 +69,6 @@ function TestDriveSettings.newFromXml()
         settings.onlyDrivables = TestDriveSettings.DEFAULT.onlyDrivables
     end
 
-    print(
-        ("[DEBUG] TestDriveSettings: Loaded settings (duration=%s, insuranceThreshold=%s, insuranceRatio=%s, onlyDrivables=%s)"):format(
-            settings.duration, settings.insuranceThreshold, settings.insuranceRatio, settings.onlyDrivables))
-
     return TestDriveSettings.new(settings)
 end
 
