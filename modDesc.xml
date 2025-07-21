@@ -28,7 +28,6 @@ This mod creates a "testDriveSettings.xml" file in the modSettings directory whi
 - insuranceRatio: the cost for insurance (when required) as a percent of total vehicle cost (default=0.003)
 - onlyDrivables: if false, all vehicles can be test driven (default=true)
 
-NOTE: This mod is not yet compatible with multiplayer.
 NOTE: This mod in not compatible with other mods which use the "MENU_EXTRA_2" key on the shop screen (by default the 'C' key).
 
 Please leave bug reports, feedback, or suggestions on my GitHub: https://github.com/richpet9/test-drive.
@@ -48,7 +47,6 @@ Dieser Mod erstellt eine Datei „testDriveSettings.xml” im Verzeichnis „mod
 - insuranceRatio: die Kosten für die Versicherung (falls erforderlich) als Prozentsatz der Gesamtkosten des Fahrzeugs (Standardwert = 0,003)
 - onlyDrivables: wenn false, können alle Fahrzeuge Probe gefahren werden (Standardwert = true)
 
-HINWEIS: Dieser Mod ist noch nicht mit dem Mehrspielermodus kompatibel.
 HINWEIS: Dieser Mod ist nicht mit anderen Mods kompatibel, die die Taste „MENU_EXTRA_2“ im Shop-Bildschirm verwenden (Standardmäßig die Taste „C“).
 
 Bitte hinterlasst Fehlerberichte, Feedback und Vorschläge auf meinem GitHub: https://github.com/richpet9/test-drive.
@@ -69,7 +67,6 @@ Ten mod tworzy plik „testDriveSettings.xml” w katalogu modSettings, którego
 - insuranceRatio: kosztu ubezpieczenia (gdy jest wymagane) jako procent całkowitego kosztu pojazdu (domyślnie=0,003)
 - onlyDrivables: jeśli false, można przetestować jazdę wszystkimi pojazdami (domyślnie=true)
 
-UWAGA: Ten mod nie jest jeszcze kompatybilny z trybem wieloosobowym.
 UWAGA: Ten mod nie jest kompatybilny z innymi modami, które używają klawisza „MENU_EXTRA_2” na ekranie sklepu (domyślnie klawisz „C”).
 
 Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub: https://github.com/richpet9/test-drive.
@@ -90,7 +87,6 @@ Prosimy o przesyłanie raportów o błędach, opinii lub sugestii na moim GitHub
 - insuranceRatio: стоимость страховки (при необходимости) в процентах от общей стоимости автомобиля (по умолчанию = 0.003)
 - onlyDrivables: если false, все транспортные средства могут быть протестированы (по умолчанию = true)
 
-ПРИМЕЧАНИЕ: этот мод пока несовместим с многопользовательской игрой.
 ПРИМЕЧАНИЕ: этот мод несовместим с другими модами, которые используют клавишу "MENU_EXTRA_2" на экране магазина (по умолчанию клавиша "C").
 
 Пожалуйста, оставляйте отчеты об ошибках, отзывы или предложения на моем GitHub: https://github.com/richpet9/test-drive.
@@ -109,7 +105,6 @@ Ce mod crée un fichier « testDriveSettings.xml » dans le répertoire modSetti
 - insuranceRatio: coût de l'assurance (si nécessaire) en pourcentage du coût total du véhicule (par défaut = 0.003)
 - onlyDrivables : si false, tous les véhicules peuvent être testés (par défaut = true)
 
-REMARQUE: Ce mod n'est pas encore compatible avec le multijoueur.
 REMARQUE: Ce mod n'est pas compatible avec les autres mods utilisant la touche « MENU_EXTRA_2 » sur l'écran de la boutique (par défaut, la touche « C »).
 
 N'hésitez pas à signaler des bugs, à laisser vos commentaires ou à suggérer des solutions sur mon GitHub: https://github.com/richpet9/test-drive.
@@ -130,7 +125,6 @@ Questa mod crea un file "testDriveSettings.xml" nella directory modSettings, che
 - insuranceRatio: il costo dell'assicurazione (quando richiesta) come percentuale del costo totale del veicolo (predefinito = 0,003)
 - onlyDrivables: se false, tutti i veicoli possono essere testati su strada (predefinito = true)
 
-NOTA: questa mod non è ancora compatibile con il multigiocatore.
 NOTA: questa mod non è compatibile con altre mod che utilizzano il tasto "MENU_EXTRA_2" nella schermata del negozio (di default il tasto "C").
 
 Inviate segnalazioni di bug, feedback o suggerimenti sul mio GitHub: https://github.com/richpet9/test-drive.
@@ -149,7 +143,6 @@ Este mod crea un archivo "testDriveSettings.xml" en el directorio modSettings qu
 - insuranceRatio: el coste del seguro (cuando sea necesario) como porcentaje del coste total del vehículo (predeterminado = 0,003)
 - onlyDrivables: si es false, se pueden probar todos los vehículos (predeterminado = true)
 
-NOTA: Este mod aún no es compatible con el modo multijugador.
 NOTA: Este mod no es compatible con otros mods que usan la tecla "MENU_EXTRA_2" en la pantalla de la tienda (por defecto, la tecla "C").
 
 Por favor, dejen sus informes de errores, comentarios o sugerencias en mi GitHub: https://github.com/richpet9/test-drive.
@@ -158,9 +151,10 @@ Por favor, dejen sus informes de errores, comentarios o sugerencias en mi GitHub
 
     <iconFilename>icon_testdrive.dds</iconFilename>
 
-    <multiplayer supported="false"/>
+    <multiplayer supported="true"/>
 
     <extraSourceFiles>
+        <sourceFile filename="TestDrivePurchaseInsuranceEvent.lua" />
         <sourceFile filename="TestDriveSettings.lua" />
         <sourceFile filename="TestDriveManager.lua" />
         <sourceFile filename="TestDriveData.lua" />

@@ -51,10 +51,8 @@ function TestDriveManager:startTestDrive(storeItem, configurations)
                 return
             end
 
-            -- TODO: Move into an event for multiplayer support.
-            local text = g_i18n:getText("rp_TEST_DRIVE_INSURANCE")
-            g_currentMission:addMoney(-insurancePrice, g_localPlayer.farmId, MoneyType.LEASING_COSTS, true)
-            g_currentMission.hud:showMoneyChange(MoneyType.LEASING_COSTS, text)
+            g_client:getServerConnection():sendEvent(TestDrivePurchaseInsuranceEvent.new(-insurancePrice,
+                                                                                         g_localPlayer.farmId))
             self:finalizeTestDrive(buyVehicleData)
         end
     end
@@ -81,7 +79,7 @@ function TestDriveManager:getInsurancePrice(storeItem, configurations)
 end
 
 function TestDriveManager:finalizeTestDrive(buyVehicleData)
-    if g_client == nil then
+    if g_client == nil or g_localPlayer == nil then
         return -- Only the client should reach this state.
     end
 
