@@ -85,7 +85,6 @@ function TestDriveSettings.saveToXml(settings, xml)
     setXMLBool(xmlFile, "testDriveSettings.onlyDrivables", settings.onlyDrivables)
 
     saveXMLFile(xmlFile)
-    delete(xmlFile)
 end
 
 function TestDriveSettings.getOrCreateXmlFile()
